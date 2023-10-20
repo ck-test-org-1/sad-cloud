@@ -1,0 +1,15 @@
+category: network
+checkTool: opal
+checkType:
+    - arm
+    - terraform
+description: "Flow logs enable capturing information about IP traffic flowing in and out of network security groups. Logs can be used to check for anomalies and give insight into suspected breaches."
+provider: azure
+severity: Medium
+title: "Virtual Network security group flow log retention period should be set to 90 days or greater"
+id: "lacework-opl-network-flow-log-retention"
+lwids:
+    CIS-Azure_v1.1.0:
+        - CIS-Azure_v1.1.0_6.4
+    CIS-Azure_v1.3.0:
+        - CIS-Azure_v1.3.0_6.4

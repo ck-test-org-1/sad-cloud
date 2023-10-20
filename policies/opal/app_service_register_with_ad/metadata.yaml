@@ -1,0 +1,12 @@
+category: app_service
+checkTool: opal
+checkType:
+    - arm
+description: "A system-assigned managed service entity from Azure Active Directory enables the app to connect to other Azure services securely without the need for usernames and passwords. Eliminating credentials from the app is a more secure approach."
+provider: ""
+severity: Low
+title: "App Service web apps should use a system-assigned managed service identity"
+id: "lacework-opl-app-service-register-with-ad"
+lwids:
+    CIS-Azure_v1.3.0:
+        - CIS-Azure_v1.3.0_9.5

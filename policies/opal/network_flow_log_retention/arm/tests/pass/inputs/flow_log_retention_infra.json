@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "resources": [
+    {
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2021-03-01",
+      "name": "OpalNSG1",
+      "location": "switzerlandnorth"
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-04-01",
+      "name": "opalsa01",
+      "location": "switzerlandnorth",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2"
+    },
+    {
+      "type": "Microsoft.Network/networkWatchers",
+      "apiVersion": "2021-04-01",
+      "name": "OpalWatcher1",
+      "location": "switzerlandnorth",
+      "resources": [
+        {
+          "type": "flowLogs",
+          "apiVersion": "2021-04-01",
+          "name": "FL1",
+          "location": "switzerlandnorth",
+          "properties": {
+            "targetResourceId": "[resourceId('Microsoft.Network/networkSecurityGroups', 'OpalNSG1')]",
+            "storageId": "[resourceId('Microsoft.Storage/storageAccounts', 'opalsa01')]",
+            "retentionPolicy": {
+              "days": 90,
+              "enabled": true
+            }
+          },
+          "dependsOn": [
+            "Microsoft.Network/networkWatchers/OpalWatcher1",
+            "Microsoft.Storage/storageAccounts/opalsa01"
+          ]
+        }
+      ]
+    }
+  ]
+}

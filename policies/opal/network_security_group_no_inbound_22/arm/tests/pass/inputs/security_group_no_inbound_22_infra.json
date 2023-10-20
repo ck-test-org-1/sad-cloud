@@ -1,0 +1,64 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "resources": [
+    {
+      "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+      "apiVersion": "2021-03-01",
+      "name": "OpalSG1/Rule2",
+      "location": "switzerlandnorth",
+      "properties": {
+        "priority": 120,
+        "access": "Deny",
+        "direction": "Inbound",
+        "destinationPortRange": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "*",
+        "protocol": "*"
+      },
+      "dependsOn": [
+        "OpalSG1"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+      "apiVersion": "2021-03-01",
+      "name": "OpalSG1/Rule5",
+      "location": "switzerlandnorth",
+      "properties": {
+        "priority": 150,
+        "access": "Allow",
+        "direction": "Inbound",
+        "destinationPortRanges": ["9-10", "23-25"],
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "*",
+        "protocol": "*"
+      },
+      "dependsOn": [
+        "OpalSG1"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+      "apiVersion": "2021-03-01",
+      "name": "OpalSG1/Rule6",
+      "location": "switzerlandnorth",
+      "properties": {
+        "priority": 160,
+        "access": "Allow",
+        "direction": "Inbound",
+        "destinationPortRanges": ["9-10", "21-22"],
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "10.0.0.0/24",
+        "destinationAddressPrefix": "*",
+        "protocol": "*"
+      },
+      "dependsOn": [
+        "OpalSG1"
+      ]
+    }
+  ]
+}

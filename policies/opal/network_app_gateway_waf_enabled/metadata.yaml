@@ -1,0 +1,11 @@
+category: network
+checkTool: opal
+checkType:
+    - arm
+    - terraform
+description: "Azure Application Gateway offers a web application firewall (WAF) that provides centralized protection of your web applications from common exploits and vulnerabilities. Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities."
+provider: azure
+severity: Medium
+title: "Ensure Azure Application Gateway Web application firewall (WAF) is enabled"
+id: "lacework-opl-network-app-gateway-waf-enabled"
+lwids: {}

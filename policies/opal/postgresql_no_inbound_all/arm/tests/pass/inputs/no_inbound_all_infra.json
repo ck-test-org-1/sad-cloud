@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "resources": [
+    {
+      "apiVersion": "2017-12-01",
+      "type": "Microsoft.DBforPostgreSQL/servers",
+      "name": "OpalServer1",
+      "location": "switzerlandnorth",
+      "properties": {
+        "administratorLogin": "foo",
+        "administratorLoginPassword": "abcd1234!"
+      },
+      "resources": [
+        {
+          "apiVersion": "2017-12-01",
+          "name": "Rule2",
+          "type": "firewallRules",
+          "properties": {
+            "startIpAddress": "10.0.0.0",
+            "endIpAddress": "10.0.255.0"
+          },
+          "dependsOn": [
+            "Microsoft.DBforPostgreSQL/servers/OpalServer1"
+          ]
+        }
+      ]
+    }
+  ]
+}

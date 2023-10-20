@@ -1,0 +1,15 @@
+category: postgresql
+checkTool: opal
+checkType:
+    - terraform
+    - arm
+description: "PostgreSQL Database configuration 'log_checkpoints' should be on. Enabling log_checkpoints helps the PostgreSQL Database to Log each checkpoint in turn generates query and error logs. However, access to transaction logs is not supported. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and sub-optimal performance."
+provider: azure
+severity: Medium
+title: "PostgreSQL Database configuration 'log_checkpoints' should be on"
+id: "lacework-opl-postgresql-configuration-log-checkpoints"
+lwids:
+    CIS-Azure_v1.1.0:
+        - CIS-Azure_v1.1.0_4.12
+    CIS-Azure_v1.3.0:
+        - CIS-Azure_v1.3.0_4.3.3

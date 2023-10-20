@@ -1,0 +1,15 @@
+category: key_vault
+checkTool: opal
+checkType:
+    - arm
+    - terraform
+description: "By default, Key Vault secrets do not expire, which can be a security issue if secrets are compromised. As a best practice, an explicit expiration date should be set for secrets and secrets should be rotated."
+provider: azure
+severity: Medium
+title: "Key Vault secrets should have an expiration date set"
+id: "lacework-opl-key-vault-secret-expiry"
+lwids:
+    CIS-Azure_v1.1.0:
+        - CIS-Azure_v1.1.0_8.2
+    CIS-Azure_v1.3.0:
+        - CIS-Azure_v1.3.0_8.2
